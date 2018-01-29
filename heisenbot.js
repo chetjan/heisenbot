@@ -26,8 +26,8 @@ client.on('message', message => {
 
             voiceChannel.join()
                 .then(connection => {
-                    const dispatcher = connection.playFile('./sounds/RustlingPaper.mp3');
-                    dispatcher.on('end', end => {
+                    const dispatcher = connection.playFile('./sounds/RustlingPaper.mp3', {volume: 0.75});
+                    dispatcher.on('end', reason => {
                         voiceChannel.leave();
                     });
                 })
